@@ -10,6 +10,7 @@ bool BeladyCache::lookup(const SimpleRequest& _req) {
     auto &req = dynamic_cast<const AnnotatedRequest &>(_req);
     _next_req_map.emplace(req.next_seq, req.id);
     auto if_hit = _size_map.find(req.id) != _size_map.end();
+    cout << if_hit << endl;
     //time to delete the past next_seq
     _next_req_map.erase(_req.seq);
 
